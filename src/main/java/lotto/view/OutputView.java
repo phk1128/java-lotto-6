@@ -2,9 +2,9 @@ package lotto.view;
 
 import java.util.List;
 import lotto.domain.Prize;
-import lotto.domain.dto.LottosDto;
-import lotto.domain.dto.PrizeResultDto;
-import lotto.domain.dto.PrizeResultDtos;
+import lotto.dto.LottosDto;
+import lotto.dto.PrizeResultDto;
+import lotto.dto.PrizeResultDtos;
 
 public class OutputView {
 
