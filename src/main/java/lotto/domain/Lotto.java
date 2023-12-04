@@ -1,4 +1,6 @@
-package lotto;
+package lotto.domain;
+
+import static lotto.util.ErrorMessage.INVALID_INPUT;
 
 import java.util.List;
 
@@ -12,8 +14,12 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT.getMessage());
         }
+    }
+
+    public List<Integer> getNumbers() {
+        return numbers;
     }
 
     // TODO: 추가 기능 구현
