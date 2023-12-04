@@ -24,7 +24,7 @@ public class Lottos {
 
     private static List<Lotto> generateLotto(int count) {
         List<Lotto> lottos = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
+        while (lottos.size() < count) {
             List<Integer> number = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
             Collections.sort(number);
             Lotto lotto = new Lotto(number);
