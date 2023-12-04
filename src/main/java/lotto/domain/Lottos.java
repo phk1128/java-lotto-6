@@ -19,7 +19,8 @@ public class Lottos {
     }
 
     public List<Lotto> getNumbers() {
-        return numbers;
+
+        return Collections.unmodifiableList(numbers);
     }
 
     private static List<Lotto> generateLotto(int count) {

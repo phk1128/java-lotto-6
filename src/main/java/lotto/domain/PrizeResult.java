@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,7 +24,8 @@ public class PrizeResult {
     }
 
     public Map<Prize, Integer> getResult() {
-        return result;
+
+        return Collections.unmodifiableMap(result);
     }
 
     private static Map<Prize, Integer> initializePrizeResult() {
