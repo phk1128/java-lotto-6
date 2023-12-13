@@ -2,7 +2,9 @@ package lotto.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import lotto.constant.Prize;
 import lotto.domain.BonusNumber;
@@ -69,7 +71,9 @@ public class LottoService {
             LottoGroup lottoGroup) {
         List<PrizeResult> prizeResults = new ArrayList<>();
         List<Prize> prizes = calculatePrize(winningNumber, bonusNumber, lottoGroup);
-        for (Prize prize : Prize.getAllPrize()) {
+        List<Prize> allPrize = Prize.getAllPrize();
+        allPrize.sort(Comparator.comparing(Prize::getPrizePrice));
+        for (Prize prize : allPrize) {
             int quantity = Collections.frequency(prizes, prize);
             PrizeResult prizeResult = PrizeResult.create(prize, quantity);
             prizeResults.add(prizeResult);
