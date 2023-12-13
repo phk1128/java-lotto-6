@@ -13,27 +13,12 @@ public class LottoGroup {
         this.lottos = lottos;
     }
 
-    public static LottoGroup create(Money money) {
-        int tickets = money.calculateTickets();
-        List<Lotto> lottos = generateLottos(tickets);
+    public static LottoGroup create(List<Lotto> lottos) {
         return new LottoGroup(lottos);
     }
 
-    private static List<Lotto> generateLottos (int tickets) {
-        List<Lotto> lottos = new ArrayList<>();
-        addLotto(lottos, tickets);
+
+    public List<Lotto> getLottos() {
         return lottos;
     }
-
-    private static void addLotto(List<Lotto> lottos, int tickets) {
-        if (tickets == 0) {
-            return;
-        }
-        tickets--;
-        List<Integer> randomNumbers = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
-        Collections.sort(randomNumbers);
-        lottos.add(new Lotto(randomNumbers));
-        addLotto(lottos, tickets);
-    }
-
 }
